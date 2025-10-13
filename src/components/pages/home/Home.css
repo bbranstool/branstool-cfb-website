@@ -1,0 +1,61 @@
+.home {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.hero-section {
+    margin-top: 5rem;
+    margin-bottom: 3rem;
+    animation: fadeIn 0.7s ease-in-out;
+}
+
+.hero-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: #666;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.content-section {
+    background: rgba(0, 0, 0, 0.03);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 5rem 0;
+}
+
+.content-section:hover {
+    background: rgba(0, 0, 0, 0.06);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Dark Mode */
+.dark .hero-subtitle {
+    color: #bbb;
+}
+
+.dark .content-section {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.dark .content-section:hover {
+    background: rgba(255, 255, 255, 0.08);
+}

@@ -1,0 +1,22 @@
+Scorigami Leaderboard
+	Most Winning Scorigamis
+	Most Losing Scorigamis
+	Most Total Scorigamis
+	
+Scorigami teams
+	Total Games
+	Total Scorigamis (Might adjust if we show losing scores)
+	Last Scorigami
+
+Scorigami (general)
+	Have slider to adjust non fbs only matchups
+	Have slider for toggling the count of games
+	Have hover effect that shows more info (Possibly link to some other stuff)
+	(MAYBE) Have slider to adjust dates
+
+Scorigami (specific scores)
+	Each score will get its own page with stats
+
+	Total times, last time, first time
+	Leaderboard of who has the most of this score.
+	List of all games with this score.

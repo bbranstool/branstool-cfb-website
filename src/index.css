@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  transition: color 0.3s ease;
+  transition: background 0.3s ease;
+  transition: background-color 0.5s ease;
+}
+
+.container {
+  width: 100vw;
+  min-height: 100vh;
+  background: #cfcfcf;
+  transition: 0.5s;
+  display: flex;
+  flex-direction: column;
+}
+
+.container.dark {
+  background-color: #222222;
+  color: #cfcfcf;
+}

@@ -1,0 +1,12 @@
+.not-found-container {
+    min-height: 70vh;
+    /* Adjust as needed */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Vertical centering */
+    align-items: center;
+    /* Horizontal centering */
+    text-align: center;
+    font-size: 25px;
+}

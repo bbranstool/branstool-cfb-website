@@ -1,0 +1,114 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  backdrop-filter: blur(8px);
+  background-color: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  transition: background-color 0.5s ease, box-shadow 0.5s ease;
+  z-index: 50;
+}
+
+.logo {
+    width: 65px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+.logo:hover {
+  transform: scale(1.05);
+}
+
+ul {
+    flex: 1;
+    list-style: none;
+    text-align: center;
+}
+ul li {
+    display: inline-block;
+    margin: 5px 20px;
+}
+
+.nav-link {
+  font-size: 18px;
+  color: inherit;
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 2px;
+}
+.nav-link:hover {
+  color: #555;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background: currentColor;
+  transform: translateX(-50%);
+  transition: width 0.5s ease;
+}
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  background: #242424;
+  padding: 5px 10px;
+  border-radius: 50px;
+  transition: transform 0.2s ease;
+}
+.search-box:focus-within {
+  transform: scale(1.05);
+}
+.search-box input {
+    padding: 6px;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    color: #ffffff;
+    font-size: 18px;
+    max-width: 200px;
+}
+.search-box input::placeholder {
+    color: #ffffff;
+}
+.search-box img {
+    width: 20px;
+    cursor: pointer;
+}
+
+.toggle-icon {
+    width: 35px;
+    cursor: pointer;
+    margin-left: 10px;
+    margin-right: 10px;
+    transition: transform 0.5s ease;
+}
+.toggle-icon:hover {
+  transform: rotate(30deg);
+}
+
+/* Dark Mode */
+.dark .navbar {
+    background-color: rgba(0, 0, 0, 0.85);
+    color: #ffffff;
+}
+.dark .search-box {
+    background: #ffffff;
+}
+.dark .search-box input {
+    color: #222222;
+}
+.dark .search-box input::placeholder{
+    color: #222222;
+}
+.dark .nav-link:hover {
+  color: #ccc;
+}
