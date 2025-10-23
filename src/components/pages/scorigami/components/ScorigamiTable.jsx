@@ -1,78 +1,74 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./ScorigamiTable.css";
+import { MultiGrid } from "react-virtualized";
 
 const impossibleScores = [[0, 1], [1, 1], [1, 2], [1, 3], [1, 4], [1, 5], [1, 7]];
 
 /**
  * Props:
- *  - maxWinScore (number) default 12  -> number of columns - 1 (0..maxWinScore)
- *  - maxLoseScore (number) default 12 -> number of rows - 1 (0..maxLoseScore)
+ *  - maxWinScore (number) default 100  -> number of columns - 1 (0..maxWinScore)
+ *  - maxLoseScore (number) default maxWinScore -> number of rows - 1 (0..maxLoseScore)
  */
-export default function ScorigamiTable({
+function ScorigamiTable({
+  scorigamiData,
   maxWinScore = 100,
   maxLoseScore = maxWinScore,
 }) {
+  const tableData = buildTableData(maxWinScore, maxLoseScore, scorigamiData);
+
+  return (
+    <>
+      <div className="table-header">Winning Score</div>
+      <div className="table-container">
+        <table className="scorigami-table">
+          <tbody>
+            {tableData}
+          </tbody>
+        </table>
+      </div>
+    </>
+  );
+}
+
+function buildTableData(maxWinScore, maxLoseScore, scorigamiData) {
   const cols = maxWinScore + 1;
   const rows = maxLoseScore + 1;
 
-  const tableRows = [];
+  const tableRows = []
 
   for (let y = 0; y < rows; y++) {
-    const cells = [];
+    const row = [];
     for (let x = 0; x < cols; x++) {
-      let classNames = ["score"];
+      const classNames = [];
+      classNames.push("score-cell");
 
-      if (impossibleScores.some(score => score[0] == x && score[1] == y || score[1] == x && score[0] == y)) {
-        classNames.push("impossible");
-      }
+      if (isImpossibleScore(x, y)) classNames.push("impossible-score");
+      if (y > x) classNames.push("losing-score-hidden");
+      if (isScorigami(x, y, scorigamiData)) classNames.push("has-happened");
 
-      if (y > x) {
-        classNames.push("losing");
-      }
-
-      cells.push(
-        <td key={x} >
-          <div className={classNames.join(' ')}>
-            <div className="count hidden">
-              0
-            </div>
-          </div>
+      row.push(
+        <td key={`${x}-${y}`} className={classNames.join(" ")}>
+          <div className="hidden">{scorigamiData.total_count}</div>
         </td>
       );
     }
 
-    tableRows.push(
-      <tr key={y} className={`losing-score-row-${y}`}>{cells}</tr>
-    );
+    tableRows.push(<tr key={y}>{row}</tr>);
   }
 
-  return (
-    <div className="scorigami-table-container">
-      <table className="scorigami-table">
-        <tbody>
-          <tr>
-            <td className="axis-label" colSpan={cols + 2}>Winning Team Score</td>
-            <td className="axis-label" rowSpan={rows + 3}>
-              <div className="vertical-text">Losing Team Score</div>
-            </td>
-          </tr>
-          {buildWinningScoreHeaders({ maxWinScore })}
-          {tableRows}
-        </tbody>
-      </table>
-    </div>
+  return tableRows;
+}
+
+function isImpossibleScore(x, y) {
+  return impossibleScores.some(([scoreX, scoreY]) =>
+    (x === scoreX && y === scoreY) || (x === scoreY && y === scoreX)
   );
 }
 
-function buildWinningScoreHeaders({ maxWinScore }) {
-  const headers = [];
-  for (let x = 0; x <= maxWinScore; x++) {
-    headers.push(<th key={x}>{x}</th>);
-  }
-
-  return (
-    <tr key={-1} className="table-winning-score-header">
-      {headers}
-    </tr>
+function isScorigami(x, y, scorigamiData) {
+  return scorigamiData.some((scorigami) =>
+    scorigami.winning_score === x && scorigami.losing_score === y
   );
 }
+
+export default ScorigamiTable;

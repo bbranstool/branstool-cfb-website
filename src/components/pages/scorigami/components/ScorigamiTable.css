@@ -1,68 +1,65 @@
-.scorigami-table-container {
+.table-header {
+  font-size: 18px;
+  font-weight: bold;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  text-align: center;
+}
+
+.table-container {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  justify-content: left;
   text-align: center;
-  overflow-x: auto;
-  white-space: nowrap;
   width: 80%;
-
+  overflow-x: auto;
 }
 
 .scorigami-table {
-  max-width: 100%;
-  white-space: nowrap;
+	border-collapse: collapse;
   margin: auto;
-  box-sizing: border-box;
-  border-collapse: collapse;
-  /* Collapses borders into a single line */
 }
 
-td {
-  display: table-cell;
-  vertical-align: inherit;
-  font-size: 8px;
-  width: 15px;
-  height: 12px;
-  padding: 0px;
-  margin: 0px;
+.impossible-score,
+.losing-score-hidden {
+  background-color: black;
+  
+  color: white;
 }
 
-th {
-  font-size: 11px;
-  padding: 0px 1px;
-}
-
-td.axis-label {
-  text-align: center;
-  font-weight: bold;
-  border: none;
-  font-size: 13px;
-
-}
-
-.vertical-text {
-  white-space: nowrap;
-  writing-mode: tb-rl;
+.has-happened {
+	background-color: green;
 }
 
 .hidden {
-  display: none;
+	display: none;
 }
 
-.score {
-  width: 100%;
-  height: 100%;
-}
-.count {
-  width: 100%;
-  height: 100%;
+.invisible {
+	visibility: hidden;
 }
 
-.impossible,
-.losing {
-  background-color: black;
-  color: black;
-  width: 100%;
-  height: 100%;
+th,
+td {
+	min-width: 15px;
+	width: 15px;
+	height: 12px;
+	line-height: 12px;
+	padding: 0px;
+	margin: 0px;
+
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+th {
+	font-size: 11px;
+}
+
+td {
+	font-size: 8px;
 }
