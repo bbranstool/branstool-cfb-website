@@ -36,6 +36,7 @@ function Scorigami() {
 
     const uniqueScores = scorigamiData.length;
     const totalGames = scorigamiData.reduce((sum, score) => sum + score.total_count, 0);
+    const maxWinScore = scorigamiData.reduce((maxWin, score) => Math.max(maxWin, score.winning_score), 0);
 
     // Get the most recent last_date
     const mostRecentDate = scorigamiData.length > 0
@@ -50,7 +51,7 @@ function Scorigami() {
                 total_games={totalGames}
                 total_scorigamis={uniqueScores}
                 last_scorigami={mostRecentDate ? mostRecentDate.toISOString().slice(0, 10) : "N/A"} />
-            <ScorigamiTable scorigamiData={scorigamiData} maxWinScore={100} maxLoseScore={100} />
+            <ScorigamiTable scorigamiData={scorigamiData} maxWinScore={maxWinScore} maxLoseScore={maxWinScore} />
         </div>
     );
 }

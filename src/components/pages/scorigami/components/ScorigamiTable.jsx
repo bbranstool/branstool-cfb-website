@@ -34,10 +34,31 @@ function buildTableData(maxWinScore, maxLoseScore, scorigamiData) {
   const cols = maxWinScore + 1;
   const rows = maxLoseScore + 1;
 
-  const tableRows = []
+  // Build score header (0 .. maxWinScore)
+  const headerCells = [];
+  // top-left corner cell (empty)
+  headerCells.push(<th key="losing-header" rowSpan={rows + 1} className="table-header vertical">Losing Score</th>)
+  headerCells.push(<th key="corner" className="score-header-corner" />);
+  for (let x = 0; x < cols; x++) {
+    headerCells.push(
+      <th key={`winning-score-${x}`} className="score-header">
+        {x}
+      </th>
+    );
+  }
+  const headerRow = <tr key="header">{headerCells}</tr>;
+
+  const bodyRows = []
 
   for (let y = 0; y < rows; y++) {
     const row = [];
+
+    row.push(
+      <th key={`losing-score-${y}`} className="score-header">
+        {y}
+      </th>
+    );
+
     for (let x = 0; x < cols; x++) {
       const classNames = [];
       classNames.push("score-cell");
@@ -46,17 +67,24 @@ function buildTableData(maxWinScore, maxLoseScore, scorigamiData) {
       if (y > x) classNames.push("losing-score-hidden");
       if (isScorigami(x, y, scorigamiData)) classNames.push("has-happened");
 
+      const scoreObj = getScoreData(x, y, scorigamiData);
+
       row.push(
         <td key={`${x}-${y}`} className={classNames.join(" ")}>
-          <div className="hidden">{scorigamiData.total_count}</div>
+          <div className="hidden">{scoreObj.total_count}</div>
         </td>
       );
     }
 
-    tableRows.push(<tr key={y}>{row}</tr>);
+    bodyRows.push(<tr key={y}>{row}</tr>);
   }
 
-  return tableRows;
+  return [ headerRow, bodyRows ];
+}
+
+function getScoreData(x, y, scorigamiData = []) {
+  if (!Array.isArray(scorigamiData)) return {};
+  return scorigamiData.find((s) => s.winning_score === x && s.losing_score === y) || {};
 }
 
 function isImpossibleScore(x, y) {
