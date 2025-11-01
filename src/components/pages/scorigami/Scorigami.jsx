@@ -1,5 +1,5 @@
 import ScorigamiStats from "./components/ScorigamiStats";
-import ScorigamiTable from "./components/ScorigamiTable";
+import ScorigamiTable from "./components/table/ScorigamiTable";
 import "./Scorigami.css";
 import { useEffect, useState } from "react";
 import loadingGif from "../../../assets/loading.gif";
@@ -12,7 +12,7 @@ function Scorigami() {
     useEffect(() => {
         const fetchTableData = async () => {
 
-            fetch("http://localhost:3000/api/fbs_only_scorigami")
+            fetch("https://college-football-api.vercel.app/api/fbs_only_scorigami")
                 .then(res => res.json())
                 .then(data => {
                     setScorigamiData(data);

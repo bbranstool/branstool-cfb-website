@@ -6,15 +6,6 @@
 	text-align: center;
 }
 
-.vertical {
-	white-space: nowrap;
-	writing-mode: vertical-rl;
-	transform: rotate(180deg);
-	padding-top: 0px;
-	padding-bottom: 0px;
-	padding-left: 5px;
-}
-
 .table-container {
 	display: flex;
 	flex-wrap: wrap;
@@ -29,15 +20,48 @@
 	margin: auto;
 }
 
+/* keep top row headers visible when vertically scrolling */
+.scorigami-table .score-header {
+	position: sticky;
+	top: 0;
+	z-index: 3;
+}
+
+/* top-left vertical label and corner */
+.scorigami-table .score-header-corner {
+	position: sticky;
+	top: 0;
+	left: 0;
+	z-index: 6;
+}
+
+/* keep left column (row numbers) visible when horizontally scrolling */
+.scorigami-table .score-row-header {
+	position: sticky;
+	left: 0;
+	z-index: 4;
+	text-align: center;
+}
+
+/* ensure corner (top-left) is above row headers and column headers */
+.scorigami-table th.score-header-corner {
+	z-index: 7;
+}
+
+.vertical {
+	white-space: nowrap;
+	writing-mode: vertical-rl;
+	transform: rotate(180deg);
+	padding-top: 0px;
+	padding-bottom: 0px;
+	width: 25px;
+	min-width: 25px;
+}
+
 .impossible-score,
 .losing-score-hidden {
 	background-color: black;
-
 	color: white;
-}
-
-.has-happened {
-	background-color: green;
 }
 
 .hidden {
@@ -68,7 +92,6 @@ td {
 th {
 	font-size: 11px;
 }
-
 td {
 	font-size: 8px;
 }
