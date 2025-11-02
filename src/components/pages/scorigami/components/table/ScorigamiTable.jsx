@@ -21,13 +21,13 @@ function ScorigamiTable({
 
   if (info) {
     infoBox = <InfoBox
-          open
-          x={info.x}
-          y={info.y}
-          score={info.score}
-          position={{ left: info.left, top: info.top }}
-          onClose={() => setInfo(null)}
-        />
+      open
+      x={info.x}
+      y={info.y}
+      score={info.score}
+      position={{ left: info.left, top: info.top }}
+      onClose={() => setInfo(null)}
+    />
   }
 
   return (
@@ -181,10 +181,37 @@ function handleCellClick(setInfo, score, x, y, event) {
     setInfo(null);
     return;
   }
-
   const rect = event.currentTarget.getBoundingClientRect();
-  const left = rect.right + window.scrollX + 8; // position to the right of cell
-  const top = rect.top + window.scrollY;
+  const infoBoxWidth = 200; // estimate width of InfoBox
+  const infoBoxHeight = 120; // estimate height of InfoBox
+  const margin = 8;
+
+  const viewportWidth = window.innerWidth;
+  const viewportHeight = window.innerHeight;
+
+  let left, top;
+
+  // Try placing to the right first
+  if (rect.right + infoBoxWidth + margin < viewportWidth) {
+    left = rect.right + window.scrollX + margin;
+    top = rect.top + window.scrollY;
+  }
+  // Else try placing to the left
+  else if (rect.left - infoBoxWidth - margin > 0) {
+    left = rect.left + window.scrollX - infoBoxWidth - margin;
+    top = rect.top + window.scrollY;
+  }
+  // Else try placing below
+  else if (rect.bottom + infoBoxHeight + margin < viewportHeight) {
+    left = rect.left + window.scrollX;
+    top = rect.bottom + window.scrollY + margin;
+  }
+  // Else place above as last resort
+  else {
+    left = rect.left + window.scrollX;
+    top = rect.top + window.scrollY - infoBoxHeight - margin;
+  }
+
   setInfo({ x, y, score, left, top });
 }
 

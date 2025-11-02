@@ -4,7 +4,7 @@ function formatDate(iso) {
   if (!iso) return "N/A";
   const d = new Date(iso);
   if (Number.isNaN(d.getTime())) return "N/A";
-  return d.toLocaleDateString();
+  return d.toISOString().slice(0, 10);
 }
 
 export default function InfoBox({ open = true, x, y, score, position = { left: 0, top: 0 }, onClose = () => { } }) {

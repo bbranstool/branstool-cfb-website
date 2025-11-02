@@ -11,16 +11,18 @@ function Scorigami() {
 
     useEffect(() => {
         const fetchTableData = async () => {
-
-            fetch("https://college-football-api.vercel.app/api/fbs_only_scorigami")
-                .then(res => res.json())
-                .then(data => {
-                    setScorigamiData(data);
-                    setIsLoading(false);
-                })
-                .catch(() => setIsLoading(false));
-
-            setIsLoading(false);
+            setIsLoading(true);
+            
+            try {
+                const results = await fetch("https://college-football-api.vercel.app/api/fbs_only_scorigami");
+                const data = await results.json();
+                setScorigamiData(data);
+            } catch (error) {
+                console.error("Failed to load table data:", error);
+            }
+            finally {
+                setIsLoading(false);
+            }
         };
 
         fetchTableData();
