@@ -1,0 +1,5 @@
+## Dev Mode Run ##
+npm run dev
+
+## Push to Prod ##
+npm run deploy

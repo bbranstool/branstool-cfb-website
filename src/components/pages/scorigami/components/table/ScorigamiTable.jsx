@@ -102,7 +102,7 @@ function buildTableData(maxWinScore, maxLoseScore, scorigamiData, setInfo) {
   // Build score header (0 .. maxWinScore)
   const headerCells = [];
   // top-left corner cell (empty)
-  headerCells.push(<th key="losing-header" rowSpan={rows + 1} className="table-header vertical">Losing Score</th>)
+  headerCells.push(<th key="losing-header" rowSpan={rows + 1} className="table-header"><div className="vertical">Losing Score</div></th>)
   headerCells.push(<th key="corner" className="score-header-corner" />);
   for (let x = 0; x < cols; x++) {
     headerCells.push(
