@@ -3,18 +3,26 @@ import ScorigamiTable from "./components/table/ScorigamiTable";
 import "./Scorigami.css";
 import { useEffect, useState } from "react";
 import loadingGif from "../../../assets/loading.gif";
+import ScorigamiControlPanel from "./components/control_panel/ScorigamiControlPanel";
 
 
 function Scorigami() {
     const [scorigamiData, setScorigamiData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [filters, setFilters] = useState({
+        allFBS: false, // default unchecked
+    });
 
     useEffect(() => {
         const fetchTableData = async () => {
             setIsLoading(true);
-            
+
             try {
-                const results = await fetch("https://college-football-api.vercel.app/api/fbs_only_scorigami");
+                const apiURL = filters.allFBS
+                    ? "https://college-football-api.vercel.app/api/fbs_all_scorigami"
+                    : "https://college-football-api.vercel.app/api/fbs_only_scorigami";
+
+                const results = await fetch(apiURL);
                 const data = await results.json();
                 setScorigamiData(data);
             } catch (error) {
@@ -26,7 +34,7 @@ function Scorigami() {
         };
 
         fetchTableData();
-    }, []);
+    }, [filters]);
 
     if (isLoading) {
         return (
@@ -49,6 +57,7 @@ function Scorigami() {
         <div className="scorigami">
             <h1 className="scorigami-title">FBS Scorigami</h1>
 
+            {/* <ScorigamiControlPanel filters={filters} onFilterChange={setFilters}></ScorigamiControlPanel> */}
             <ScorigamiStats
                 total_games={totalGames}
                 total_scorigamis={uniqueScores}
