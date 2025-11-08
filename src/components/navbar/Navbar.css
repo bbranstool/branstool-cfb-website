@@ -1,18 +1,8 @@
-:root {
-  --navbar-height: 64px; /* adjust to your nav height */
-}
-
-body {
-  padding-top: var(--navbar-height);
-  /* if you don't want the padding included in flow for some reason, you could use margin-top instead */
-}
-
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  height: var(--navbar-height);
   width: 100%;
   z-index: 9999;
   display: flex;
