@@ -1,0 +1,29 @@
+.conference-section {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 12px 16px;
+    background-color: #f9f9f9;
+}
+
+.conference-name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 12px;
+    text-align: center;
+    min-height: 2em;
+}
+
+.team-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dark .conference-section {
+    background-color: rgba(80, 80, 80, .2);
+    border: 1px solid rgb(30, 30, 30);
+}
+
+.dark .conference-name {
+    color: #ffffff;
+}

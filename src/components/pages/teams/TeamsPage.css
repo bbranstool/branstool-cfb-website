@@ -1,0 +1,34 @@
+/* Root container */
+.teams-page {
+    padding: 20px;
+    margin: 0 auto 60px auto;
+    width: calc(100% - 40px);
+    max-width: 1600px;
+}
+
+.teams-page-title {
+    padding-top: 1em;
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    justify-self: center;
+}
+
+.conference-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+@media (max-width: 600px) {
+    .teams-page {
+        width: 100%;
+        padding: 16px;
+    }
+
+    .conference-list {
+        grid-template-columns: 1fr;
+    }
+}

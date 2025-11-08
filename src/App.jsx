@@ -5,6 +5,7 @@ import { Route, Routes } from 'react-router-dom';
 import Home from './components/pages/home/Home';
 import NotFound from './components/pages/not_found/NotFound';
 import Scorigami from './components/pages/scorigami/Scorigami';
+import TeamsPage from './components/pages/teams/TeamsPage';
 
 function App() {
   const current_theme = localStorage.getItem('current_theme');
@@ -20,6 +21,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/scorigami' element={<Scorigami/>}/>
+        <Route path='/teams' element={<TeamsPage theme={theme}/>}/>
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

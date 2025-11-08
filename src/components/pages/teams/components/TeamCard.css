@@ -1,0 +1,56 @@
+.team-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 8px;
+  border-radius: 6px;
+}
+
+.team-card:hover {
+  background-color: #e6e6e6;
+}
+
+.team-logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.team-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.team-name {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.team-mascot {
+  font-size: 12px;
+}
+
+/* dark mode */
+.dark .team-card:hover {
+  background-color: #222222;
+}
+
+@media (max-width: 600px) {
+  .conference-list {
+    grid-template-columns: 1fr;
+  }
+
+  .team-logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .team-name {
+    font-size: 13px;
+  }
+
+  .team-mascot {
+    font-size: 11px;
+  }
+}

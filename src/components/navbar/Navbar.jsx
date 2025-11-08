@@ -21,15 +21,16 @@ function Navbar({theme, setTheme}) {
             </Link>
             <ul>
                 <li><Link to="/" className="nav-link">Home</Link></li>
+                <li><Link to="/teams" className="nav-link">Teams</Link></li>
                 <li><Link to="/scorigami" className="nav-link">Scorigami</Link></li>
                 <li><Link to="/about" className="nav-link">About</Link></li>
                 <li><Link to="/faq" className="nav-link">FAQ</Link></li>
             </ul>
 
-            <div className="search-box">
+            {/* <div className="search-box">
                 <input type="text" placeholder="Search"/>
                 <img src={theme == 'light' ? search_icon_light : search_icon_dark} alt="toggle theme" className="toggle-icon"/>
-            </div>
+            </div> */}
 
             <img onClick={() => {toggle_theme()}} src={theme == 'light' ? toggle_light : toggle_dark} alt="" className="toggle-icon"/>
         </div>

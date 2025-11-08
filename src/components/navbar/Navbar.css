@@ -1,7 +1,20 @@
+:root {
+  --navbar-height: 64px; /* adjust to your nav height */
+}
+
+body {
+  padding-top: var(--navbar-height);
+  /* if you don't want the padding included in flow for some reason, you could use margin-top instead */
+}
+
 .navbar {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
+  height: var(--navbar-height);
   width: 100%;
+  z-index: 9999;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -9,7 +22,6 @@
   background-color: rgba(255, 255, 255, 0.85);
   box-shadow: 0 3px 6px rgba(0,0,0,0.1);
   transition: background-color 0.5s ease, box-shadow 0.5s ease;
-  z-index: 50;
 }
 
 .logo {
@@ -56,34 +68,6 @@ ul li {
   width: 100%;
 }
 
-.search-box {
-  display: flex;
-  align-items: center;
-  background: #242424;
-  padding: 5px 10px;
-  border-radius: 50px;
-  transition: transform 0.2s ease;
-}
-.search-box:focus-within {
-  transform: scale(1.05);
-}
-.search-box input {
-    padding: 6px;
-    background: transparent;
-    border: 0;
-    outline: 0;
-    color: #ffffff;
-    font-size: 18px;
-    max-width: 200px;
-}
-.search-box input::placeholder {
-    color: #ffffff;
-}
-.search-box img {
-    width: 20px;
-    cursor: pointer;
-}
-
 .toggle-icon {
     width: 35px;
     cursor: pointer;
@@ -99,15 +83,6 @@ ul li {
 .dark .navbar {
     background-color: rgba(0, 0, 0, 0.85);
     color: #ffffff;
-}
-.dark .search-box {
-    background: #ffffff;
-}
-.dark .search-box input {
-    color: #222222;
-}
-.dark .search-box input::placeholder{
-    color: #222222;
 }
 .dark .nav-link:hover {
   color: #ccc;
