@@ -4,6 +4,7 @@ import "./Scorigami.css";
 import { useEffect, useState } from "react";
 import loadingGif from "../../../assets/loading.gif";
 import ScorigamiControlPanel from "./components/control_panel/ScorigamiControlPanel";
+import GameTable from "./components/game_table/GameTable";
 
 
 function Scorigami() {
@@ -63,6 +64,7 @@ function Scorigami() {
                 total_scorigamis={uniqueScores}
                 last_scorigami={mostRecentDate ? mostRecentDate.toISOString().slice(0, 10) : "N/A"} />
             <ScorigamiTable scorigamiData={scorigamiData} maxWinScore={maxWinScore} maxLoseScore={maxWinScore} />
+            <GameTable data={scorigamiData}/>
         </div>
     );
 }

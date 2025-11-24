@@ -4,8 +4,8 @@ export default function TeamCard({ theme, team }) {
   const { team_name, mascot, division, espn_id } = team;
   const darkLogoText = theme == 'dark' ? "-dark" : "";
   console.log(theme)
-  // const logoUrl = `http://a.espncdn.com/i/teamlogos/ncaa/500${darkLogoText}/${espn_id}.png`;
-  const logoUrl = `http://a.espncdn.com/i/teamlogos/ncaa/500/${espn_id}.png`;
+  const logoUrl = `http://a.espncdn.com/i/teamlogos/ncaa/500${darkLogoText}/${espn_id}.png`;
+  // const logoUrl = `http://a.espncdn.com/i/teamlogos/ncaa/500/${espn_id}.png`;
 
   const handleError = (e) => {
     e.target.onerror = null;

@@ -14,6 +14,7 @@ function ScorigamiTable({
   scorigamiData,
   maxWinScore = 100,
   maxLoseScore = maxWinScore,
+  teamTable = false,
 }) {
   const [info, setInfo] = useState(null);
   const tableData = buildTableData(maxWinScore, maxLoseScore, scorigamiData, setInfo);

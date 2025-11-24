@@ -1,6 +1,7 @@
 import "./TeamsPage.css";
 import { useEffect, useState } from "react";
 import ConferenceSection from "./components/ConferenceSection";
+import loadingGif from "../../../assets/loading.gif";
 
 export default function TeamsPage({ theme }) {
     const [teams, setTeams] = useState([]);
@@ -44,14 +45,18 @@ export default function TeamsPage({ theme }) {
     }, []);
 
     if (loading) {
-        return <div>Loading teams...</div>;
+        return (
+            <div id="loadingDiv">
+                <img id="loading" src={loadingGif} alt="Loading" />
+            </div>
+        );
     }
 
     const groupedTeams = groupTeamsByConference(teams);
     const sortedGroupedTeams = Object.entries(groupedTeams).sort(([confA], [confB]) =>
         confA.localeCompare(confB)
     );
-    
+
     return (
         <div className="teams-page">
             <h1 className="teams-page-title">FBS Teams</h1>

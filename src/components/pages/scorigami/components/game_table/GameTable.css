@@ -1,0 +1,176 @@
+/* Increase all component text sizes */
+.game-table-wrap,
+.game-table-controls,
+.game-table-info,
+.game-table-pager button,
+.game-table-page-size select,
+.game-table,
+.game-table th,
+.game-table td,
+.no-rows-cell {
+    font-size: 1.05rem;
+}
+
+/* Header slightly larger */
+.game-table thead th {
+    font-size: 1.1rem;
+}
+
+/* Make pager text slightly larger */
+.game-table-pager .page-indicator {
+    font-size: 1.05rem;
+}
+
+/* WRAPPER
+   90% width on desktop, full width on mobile */
+.game-table-wrap {
+    width: 80%;
+    margin: 1rem auto 0 auto;
+    font-family: inherit;
+    color: inherit;
+}
+
+@media (max-width: 768px) {
+    .game-table-wrap {
+        width: 100%;
+    }
+}
+
+/* CONTROLS */
+.game-table-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+    font-size: 0.95rem;
+}
+
+.game-table-info {
+    color: rgba(0, 0, 0, 0.75);
+}
+
+/* PAGINATION */
+.game-table-pager button {
+    background: none;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 6px 8px;
+    margin: 0 2px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.game-table-pager button[disabled] {
+    opacity: 0.45;
+    cursor: default;
+}
+
+.game-table-page-size select {
+    margin-left: 0.5rem;
+    padding: 4px;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* NO SCROLLBAR — table grows naturally */
+.game-table-scroll {
+    overflow: visible;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    background: var(--card-bg, #fff);
+}
+
+/* TABLE */
+.game-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    min-width: 640px;
+}
+
+/* CELLS */
+.game-table th,
+.game-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    text-align: left;
+    text-align: center;
+}
+
+/* STICKY HEADER */
+.game-table thead th {
+    background: rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    text-align: center;
+}
+
+/* ZEBRA + HOVER */
+.game-table tbody tr:nth-child(odd) {
+    background: rgba(0, 0, 0, 0.015);
+}
+
+.game-table tbody tr:hover {
+    background: rgba(0, 0, 0, 0.07);
+}
+
+/* EMPTY STATE */
+.no-rows-cell {
+    text-align: center;
+    padding: 1rem 0;
+    color: rgba(0, 0, 0, 0.5);
+    font-style: italic;
+}
+
+/* DARK MODE */
+.dark .game-table-wrap {
+    color: #f0f0f0;
+}
+
+.dark .game-table-controls {
+    color: #e0e0e0;
+}
+
+.dark .game-table-info {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.dark .game-table-scroll {
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: #1e1e1e;
+}
+
+.dark .game-table th,
+.dark .game-table td {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark .game-table thead th {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.dark .game-table tbody tr:nth-child(odd) {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.dark .game-table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.dark .game-table-pager button {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+.dark .game-table-pager button[disabled] {
+    opacity: 0.4;
+}
+
+.dark .game-table-page-size select {
+    background: #1e1e1e;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}
