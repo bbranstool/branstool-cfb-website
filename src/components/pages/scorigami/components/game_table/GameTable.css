@@ -8,7 +8,7 @@
 .game-table th,
 .game-table td,
 .no-rows-cell {
-    font-size: 1.05rem;
+    font-size: 1.00rem;
 }
 
 /* Header slightly larger */
@@ -21,19 +21,12 @@
     font-size: 1.05rem;
 }
 
-/* WRAPPER
-   90% width on desktop, full width on mobile */
+/* WRAPPER */
 .game-table-wrap {
     width: 80%;
     margin: 1rem auto 0 auto;
     font-family: inherit;
     color: inherit;
-}
-
-@media (max-width: 768px) {
-    .game-table-wrap {
-        width: 100%;
-    }
 }
 
 /* CONTROLS */
@@ -74,13 +67,16 @@
     border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-/* NO SCROLLBAR — table grows naturally */
+/* TABLE SCROLL — the table may scroll, not the page */
 .game-table-scroll {
-    overflow: visible;
+    overflow-x: auto;
+    overflow-y: visible;
+    max-width: 100%;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 6px;
     background: var(--card-bg, #fff);
 }
+
 
 /* TABLE */
 .game-table {
@@ -93,10 +89,18 @@
 /* CELLS */
 .game-table th,
 .game-table td {
-    padding: 10px 12px;
+    line-height: 1.35;
+    padding-top: 12px;
+    padding-bottom: 12px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     text-align: left;
     text-align: center;
+    white-space: normal;
+    word-break: break-word;
+}
+
+.game-table tbody td {
+    font-size: 0.90rem;
 }
 
 /* STICKY HEADER */
@@ -173,4 +177,22 @@
     background: #1e1e1e;
     color: #fff;
     border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+@media (max-width: 768px) {
+
+    .game-table {
+        table-layout: fixed;   /* <— helps columns shrink evenly */
+        min-width: 0;          /* <— allows shrinking instead of forcing overflow */
+    }
+
+    .game-table th,
+    .game-table td {
+        padding: 8px;          /* tighter spacing */
+        font-size: 0.95rem;
+    }
+
+    .game-table-wrap {
+        width: 100%;
+    }
 }

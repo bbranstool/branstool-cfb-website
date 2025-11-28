@@ -19,7 +19,7 @@ function formatDate(iso) {
     return d.toLocaleDateString();
 }
 
-export default function GameTable({ data = [], initialPageSize = 20 }) {
+export default function GameTable({ data = [], initialPageSize = 10 }) {
     const [page, setPage] = useState(0);
     const [pageSize, setPageSize] = useState(initialPageSize);
 
