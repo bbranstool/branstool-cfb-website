@@ -182,14 +182,20 @@
 @media (max-width: 768px) {
 
     .game-table {
-        table-layout: fixed;   /* <— helps columns shrink evenly */
-        min-width: 0;          /* <— allows shrinking instead of forcing overflow */
+        table-layout: fixed;
+        /* <— helps columns shrink evenly */
+        min-width: 0;
+        /* <— allows shrinking instead of forcing overflow */
     }
 
     .game-table th,
     .game-table td {
-        padding: 8px;          /* tighter spacing */
+        padding: 8px;
         font-size: 0.95rem;
+    }
+
+    .game-table tbody td {
+        font-size: 0.8rem;
     }
 
     .game-table-wrap {

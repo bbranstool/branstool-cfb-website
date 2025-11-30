@@ -15,8 +15,7 @@ function parseDate(iso) {
 function formatDate(iso) {
     const d = parseDate(iso);
     if (!d) return "N/A";
-    // using toLocaleDateString for friendly display; adjust second arg for locale
-    return d.toLocaleDateString();
+    return d.toISOString().slice(0, 10);
 }
 
 export default function GameTable({ data = [], initialPageSize = 10 }) {
