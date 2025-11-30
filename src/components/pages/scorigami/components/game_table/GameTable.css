@@ -200,8 +200,6 @@
 
     .game-table thead th {
         font-size: 0.85rem;
-        white-space: nowrap;
-        /* prevents letter wrapping */
     }
 
     .game-table tbody td {
