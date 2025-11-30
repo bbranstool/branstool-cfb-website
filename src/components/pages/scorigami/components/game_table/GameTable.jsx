@@ -81,7 +81,7 @@ export default function GameTable({ data = [], initialPageSize = 10 }) {
                             const id = r.id ?? r.game_id ?? `${r.first_date ?? "d"}-${r.winning_score}-${r.losing_score}-${i}`;
                             return (
                                 <tr key={id}>
-                                    <td>{formatDate(safeDateValue(r))}</td>
+                                    <td class="date-col">{formatDate(safeDateValue(r))}</td>
                                     <td>{r.winning_score ?? "—"}</td>
                                     <td>{r.losing_score ?? "—"}</td>
                                     <td>{r.first_winning_team ?? r.winning_team ?? "N/A"}</td>

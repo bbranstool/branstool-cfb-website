@@ -112,6 +112,10 @@
     text-align: center;
 }
 
+.game-table td.date-col {
+    white-space: nowrap;
+}
+
 /* ZEBRA + HOVER */
 .game-table tbody tr:nth-child(odd) {
     background: rgba(0, 0, 0, 0.015);
@@ -192,6 +196,12 @@
     .game-table td {
         padding: 8px;
         font-size: 0.95rem;
+    }
+
+    .game-table thead th {
+        font-size: 0.85rem;
+        white-space: nowrap;
+        /* prevents letter wrapping */
     }
 
     .game-table tbody td {
